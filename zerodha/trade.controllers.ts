@@ -1,10 +1,13 @@
-import type { ServerError } from "@modelcontextprotocol/sdk/server/auth/errors.js";
 import { KiteConnect } from "kiteconnect";
+import dotenv from "dotenv";
+dotenv.config();
 
-const apiKey = "p5c10svdo0elndsr";
-let accessToken = "MN3R0oDStfzH1wvLb0yKosGGYjFiDq1D" ;
+const apiKey = process.env.ZERODHA_API_KEY||  "kjn";
+let accessToken = process.env.KITE_ACCESS_TOKEN || "" ;
 
+console.log(apiKey)
 const kc = new KiteConnect({ api_key: apiKey });
+
 kc.setAccessToken(accessToken);
 
 type CustomError = {
